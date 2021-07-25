@@ -1,11 +1,17 @@
 const container = document.querySelector('.container')
 const reset = document.querySelector('.reset')
 
+
+
     function board(num = 16) {
-        for (let i = 0; i < num; i++) {
+        for (let i = 0; i < num * num ; i++) {
             const container = document.querySelector('.container')
              const squares = document.createElement('div')
             squares.id = 'square'
+            let squareHeight = 40/num + 'rem'
+            let squareWidth = 40/num + 'rem'
+            squares.style.height = `${squareHeight}`
+            squares.style.width = `${squareWidth}`
              container.append(squares)
         }
     }
@@ -22,8 +28,12 @@ document.querySelectorAll('#square').forEach(item => {
 })
 
 
-// reset.addEventListener('click', () => {
+const eraseAndReset = function() {
+    const wholeGrid = container.querySelectorAll('div')
+    wholeGrid.forEach(onesquare => onesquare.style.backgroundColor = 'black')
+   
+}
 
-//     document.querySelectorAll('#square').style.backgroundColor = 'black'
 
-// })
+reset.addEventListener('click', eraseAndReset)
+

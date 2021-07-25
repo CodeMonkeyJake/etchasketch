@@ -1,20 +1,18 @@
 
 .container {
 display: flex;
+flex-direction: row;
 flex-wrap: wrap;
-flex-grow: 0;
-flex-shrink: 0;
-height: 600px;
-    width: 600px;
-    
+
+width:40rem;
+height: 40rem;
 }
 
 
 .container div {
    
 background-color:  black;
-height: 150px;
-width: 150px;
+
 
 }
 
