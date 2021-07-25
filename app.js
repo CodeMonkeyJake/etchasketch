@@ -21,17 +21,34 @@ const squares = document.querySelector('#square')
 
     
 
-document.querySelectorAll('#square').forEach(item => {
+function makeblue() {document.querySelectorAll('#square').forEach(item => {
     item.addEventListener('mouseover', (e) => {
        e.target.style.backgroundColor = 'blue'
     })
-})
+}) }
 
+makeblue()
 
 const eraseAndReset = function() {
     const wholeGrid = container.querySelectorAll('div')
-    wholeGrid.forEach(onesquare => onesquare.style.backgroundColor = 'black')
-   
+    // wholeGrid.forEach(onesquare => onesquare.style.backgroundColor = 'black')
+   wholeGrid.forEach(onesquare => onesquare.remove());
+   const promptAsk = prompt('how many squares would you like?')
+const ask = parseInt(promptAsk,10)
+  if(isNaN(ask)) {
+      window.alert('you must pick a positive INTEGER! (max: 100)');
+      eraseAndReset()
+  }
+ else if (ask < 0 ) {
+     window.alert('must pick a POSITVE integer! (max: 100)')
+     eraseAndReset()
+ } else if(ask > 100 ) {
+     window.alert('must pick a positve integer! (MAX: 100)')
+      eraseAndReset()
+    }
+ 
+   board(ask)
+   makeblue()
 }
 
 
